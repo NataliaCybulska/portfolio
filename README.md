@@ -2,48 +2,31 @@
 **If you're here, you're possibly considering me for a position in your company.**<br>
 **Thank you for your time and for giving me a chance!**
 
-
-
-# Certificates
-
-tldr: CompTIA Security+, Google Cybersecurity, completed TryHackMe paths (DevSecOps, Junior Penetration Tester, Web Fundamentals). I will soon add AWS Certified Cloud Practitioner to this list. 
+My background is QA - since then I've been leaning hard into infrastructure, secure coding practices, and hands-on offensive security. This repo is the evidence trail: certifications, exploitation writeups, and real code I've shipped. Read on, or jump straight to whichever section proves what you need it to.
 
 ---
 
-# TryHackMe writeups
+## Certifications
 
-#TODO description
-
-1. Based on static code analysis, SAST tools testing and carefully crafting requests, #TODO list tools
-2. Insecure IaC exploitation, #TODO Vagrant, Docker, Ansible, Flask, SSH pivoting, Docker privilege escalation
+CompTIA Security+ and the Google Cybersecurity Professional Certificate, with AWS Certified Cloud Practitioner next up. I've also been living on TryHackMe (top 1% rank, 276 rooms completed, 228-day streak). Full details, dates, and the reasoning behind what I do and don't post publicly: [certifications](certifications/README.md).
 
 ---
 
-# Professional work
+## Security Writeups
 
-Unfortunately, most of the projects I worked on aren't open source but there's one I'd gladly share. 
-OpenVINO™ Model Server (OVMS) is a high-performance system for serving machine learning models (see more: [OpenVINO Model Server](https://github.com/openvinotoolkit/model_server)).
-
-Within this repository, I refactored plenty of legacy code and contributed to code reviews. 
-Refactor of this repository happened while simultaneously tests were used - so it was important to not break their execution at any time.
-
-Scope of changes:<br>
-* PEP8 and OOP adjustments,
-* fix of hard-coded values,
-* improvement of code readability,
-* implementation of a few features making team's life easier
-
-More available [here](code_snippets/README.md)
+Two full writeups from hands-on TryHackMe rooms - one exploiting a vulnerable web app through static code analysis, the other breaking insecure Infrastructure-as-Code all the way to a Docker privilege escalation. Full walkthroughs, screenshots, and the dead ends included: [security-writeups](security-writeups/README.md).
 
 ---
 
+## Engineering Samples
 
-# Academic work
+Real, merged contributions to [OpenVINO™ Model Server](https://github.com/openvinotoolkit/model_server), Intel's open-source model-serving project — refactoring legacy test infrastructure without breaking the suite while I did it. Most of what I've shipped professionally sits behind an NDA; this is the exception: [engineering-samples](engineering-samples/README.md).
 
-I highly encourage you to check out my thesis (written in Polish) - I had quite fun writing it and in the worst-case scenario you'll see some funky pictures created by a generative adversarial network. I've also attached pictures of my dog and a few bad puns, so I highly recommend it.
+---
 
-Brief summary: I used [StyleGAN2](https://github.com/NVlabs/stylegan2) (style-based GAN architecture) to create GAN 
-generating impressionist paintings.
+## Academic Work
+
+My engineering thesis on generating impressionist paintings with StyleGAN2 — written in Polish, with more dog photos and bad puns than a thesis strictly requires: [academic-work](academic-work/README.md).
 
 ---
 
