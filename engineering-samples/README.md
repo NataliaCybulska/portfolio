@@ -2,11 +2,11 @@
 
 Contributions merged into [OpenVINO™ Model Server](https://github.com/openvinotoolkit/model_server) (OVMS), Intel's open-source high-performance model-serving project - refactoring legacy test infrastructure without breaking the suite while I did it. I also contributed to code review on the same repo.
 
-_Also predates LLM code assistants - so this is proof I can actually code, not just prompt._
+_Also predates LLM code assistants, back when writing code meant writing code._
 
 **Scope:** PEP8/OOP cleanup, removing hard-coded values in favor of config-driven parameters, readability improvements, and a few quality-of-life features for the team.
 
-_Each image below is a short snippet of the full commit — click the commit link above it for the full diff._
+_Each image below is a short snippet of the full commit. Click the commit link above it for the full diff._
 
 ---
 

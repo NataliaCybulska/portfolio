@@ -156,7 +156,7 @@ With the tunnel running, `http://localhost:8080` showed a "Bucket List App" with
 ![](images/on-premises-iac/login_page_test_db_button.png)
 
 
-When I clicked `(Dev) Test DB` I saw in the network tab a POST request with a `_command` parameter set to `service mysql status`, and the page rendered back "MySQL Community Server 5.7.42 is running." — the literal output of that shell command.
+When I clicked `(Dev) Test DB` I saw in the network tab a POST request with a `_command` parameter set to `service mysql status`, and the page rendered back "MySQL Community Server 5.7.42 is running." That's the literal output of that shell command.
 
 ![](images/on-premises-iac/testdb_response_headers.png)
 
@@ -179,7 +179,7 @@ And finally the first flag itself.
 
 
 
-Time to verify at runtime what the static analysis predicted — I checked whether the key from `app-setup.yml` actually made it onto the live container.
+Time to verify at runtime what the static analysis predicted: I checked whether the key from `app-setup.yml` actually made it onto the live container.
 
 ![](images/on-premises-iac/root_ssh_dir_listing.png)
 

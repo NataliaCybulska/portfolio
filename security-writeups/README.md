@@ -1,6 +1,6 @@
 ## Security Writeups
 
-[TryHackMe](https://tryhackme.com) is a hands-on platform for practicing security skills - each "room" is a self-contained, deliberately vulnerable environment with hidden flags you find by actually exploiting it, not just reading about it. Similar idea to a CTF (capture-the-flag), with a guided difficulty curve.
+[TryHackMe](https://tryhackme.com) is a hands-on platform for practicing security skills - each "room" is a self-contained, deliberately vulnerable environment with hidden flags you find by actually exploiting it. Similar idea to a CTF (capture-the-flag), with a guided difficulty curve.
 
 These are writeups from two rooms I completed - one lives in application code, the other in the infrastructure underneath it. Turns out breaking things has layers.
 

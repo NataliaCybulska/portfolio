@@ -17,7 +17,7 @@
 ![TryHackMe profile stats](images/thm_banner.png)
 
 
-Not proctored certifications — each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~78 hours combined, listed separately so it's clear which is which.
+Not proctored certifications. Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~78 hours combined, listed separately so it's clear which is which.
 
 | Path                  | Completed | Duration  | Credential ID    |
 | --------------------- | --------- | --------- | ---------------- |
