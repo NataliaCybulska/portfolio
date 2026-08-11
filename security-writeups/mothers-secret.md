@@ -271,7 +271,7 @@ Router.post("/nostromo", (req, res) => {
   const filePath = `./public/${file_path}`;
 ```
 
-Zero friction to get started, meaningful results after a free signup, and it integrates cleanly into CI pipelines. If you're doing any amount of code review or CTF prep, Semgrep earns its place in the toolbox.
+The free signup took two minutes and immediately surfaced the path traversal ESLint only hinted at without explaining. That's enough reason to keep it around for code review and CTF prep.
 
 ## Exploring the target
 

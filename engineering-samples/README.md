@@ -4,7 +4,7 @@ Contributions merged into [OpenVINO™ Model Server](https://github.com/openvino
 
 _Also predates LLM code assistants, back when writing code meant writing code._
 
-**Scope:** PEP8/OOP cleanup, removing hard-coded values in favor of config-driven parameters, readability improvements, and a few quality-of-life features for the team.
+**Scope:** PEP8/OOP cleanup, removing hard-coded values in favour of config-driven parameters, readability improvements, and a few quality-of-life features for the team.
 
 _Each image below is a short snippet of the full commit. Click the commit link above it for the full diff._
 
@@ -17,8 +17,7 @@ _Each image below is a short snippet of the full commit. Click the commit link a
 ![Command wrapper for starting OVMS](images/command_wrapper.png)
 ***
 
-**Refactor of the fixtures starting OVMS to use previously created command wrapper; removed recurring code, improved 
-readability.**<br>
+**Refactor of the fixtures starting OVMS to use previously created command wrapper; removed recurring code, improved readability.**<br>
 
 <https://github.com/openvinotoolkit/model_server/commit/ab16be1dc3f3f294c3aef12b4d86de1f2e1a95b1>
 
@@ -39,8 +38,7 @@ readability.**<br>
 ![Further refactor of OVMS, MinIO and AWS Docker fixtures](images/docker_fixtures_refactor.png)
 ***
 
-**Created classes: Docker, MinioDocker, OvmsDocker to easily handle test objects. Prepared Server class for the future - 
-to be able to test OVMS both as a Docker container and binary file within the process on a bare host.**<br>
+**Created classes: Docker, MinioDocker, OvmsDocker to easily handle test objects. Prepared Server class for the future - to be able to test OVMS both as a Docker container and binary file within the process on a bare host.**<br>
 
 <https://github.com/openvinotoolkit/model_server/commit/c8418bac8cf4f7add12a39f7b08ffb43871d8ca4>
 

