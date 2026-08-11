@@ -1,8 +1,10 @@
 
-![](thm_room.png)
+# Mother's Secret
+
+![](images/mothers-secret/thm_room.png)
 
 
-This writeup documents the full thought process behind solving this room — including dead ends and happy accidents — rather than presenting a clean, linear solution
+This writeup documents the full thought process behind solving this room - including dead ends and happy accidents - rather than presenting a clean, linear solution
 
 
 Task instructions:
@@ -23,12 +25,12 @@ Task instructions:
 ```
 
 
-# Static analysis
+## Static analysis
 
 Two files with source code were provided as a starting point:
 
 
-yaml.js
+`yaml.js`
 ```javascript
 import express from "express";
 import yaml from "js-yaml";
@@ -74,7 +76,7 @@ export default Router;
 ---
 
 
-Nostromo.js
+`Nostromo.js`
 
 ```javascript
 import express from "express";
@@ -144,7 +146,7 @@ export default Router;
 
 ---
 
-# SAST tools
+## SAST tools
 
 I ran both files through static analysis tools to see how well automated scanners would catch the issues.
 
@@ -173,7 +175,7 @@ I ran both files through static analysis tools to see how well automated scanner
   3 errors and 0 warnings potentially fixable with the `--fix` option.
 ```
 
-The `security/detect-non-literal-fs-filename` rule did flag the `fs.readFile` calls using dynamic arguments but didn't explicitly said why this is dangerous.
+The `security/detect-non-literal-fs-filename` rule did flag the `fs.readFile` calls using dynamic arguments but didn't explicitly say why this is dangerous.
 
 ### semgrep 
 
@@ -204,7 +206,7 @@ Ran 68 rules on 2 files: 0 findings.
 
 ```
 
-This result wasn't successful at all but I've taken notice of ` Missed out on 242 pro rules since you aren't logged in`. What hurts to try? 
+This result wasn't successful at all but I've taken notice of ` Missed out on 242 pro rules since you aren't logged in`. What hurts to try? I logged in with a free account, unlocking the 242 pro rules, and reran the scan:
 
 ```
 3 Code Findings
@@ -250,7 +252,7 @@ This result wasn't successful at all but I've taken notice of ` Missed out on 24
 
 ```
 
-Bingo! The setup was fairly easy and it returned the result I was hoping for. Today I gained additional tool that I could use for my daily work arsenal. 
+Bingo! The setup was fairly easy and it returned the result I was hoping for. Today I gained an additional tool that I could use for my daily work arsenal. 
 
 Semgrep found 3 issues with path traversal: 
 
@@ -269,46 +271,45 @@ Router.post("/nostromo", (req, res) => {
   const filePath = `./public/${file_path}`;
 ```
 
-```
-Router.post("/nostromo", (req, res) => {
-  let file_path = req.body.file_path;
-  const filePath = `./public/${file_path}`;
-```
+Zero friction to get started, meaningful results after a free signup, and it integrates cleanly into CI pipelines. If you're doing any amount of code review or CTF prep, Semgrep earns its place in the toolbox.
 
+## Exploring the target
 
-# Exploring the target
+The root of the website consisted of a simple menu - I've inspected the code and didn't find any further clues. 
 
-The root of the website consisted of simple menu - I've inspected the code and didn't find any further clues. 
-
-![](main_page.png)
+![](images/mothers-secret/main_page.png)
 
 
 Attempting to access endpoints directly returned a consistent error.
 
-![](net_secret.png)
+![](images/mothers-secret/net_secret.png)
 
 
-![](yaml_page.png)
+![](images/mothers-secret/yaml_page.png)
 
 The task hint pointed toward the YAML loader as the entry point.
 
-![](burp_wrong_route.png)
+![](images/mothers-secret/burp_wrong_route.png)
+
+### Flag 1: the order file
 
 This is where I hit my first wall. I tried various POST requests to `/api/yaml` and `/public` endpoints with different payloads, but nothing landed. The emergency command override `100375` was the key - and a GET request to `http://10.113.185.21/100375.yaml` accidentally returned the file contents directly. This came back to bite me later in this task.
 
-![](special_order.png)
+![](images/mothers-secret/special_order.png)
 
 I initially went down a rabbit hole trying to spoof the `Referer` header to match the YAML file's URL, hoping the server would treat it as coming from a trusted internal route. That didn't work out - the server wasn't checking `Referer` at all. 
 The YAML file pointed to `0rd3r937.txt`. Navigating directly to `http://10.113.185.21/0rd3r937.txt` worked and revealed the flag.
 
-![](Pasted%20image%2020260607193026.png)
+![](images/mothers-secret/order_937_flag_revealed.png)
 
+
+### Flag 2: Mother's secret
 
 The next question was: "What is the name of the Science Officer with permissions?" and the hint for it:
 `When the role changes a new name is displayed`
 
 Well, there was something about the role:
-![](Pasted%20image%2020260607193841.png)
+![](images/mothers-secret/role_before_crew_member.png)
 
 
 I've decided to go back to the code, the corresponding part:
@@ -337,29 +338,23 @@ Router.post("/nostromo", (req, res) => {
 });
 ```
 
-After some time I deducted- I didn't access the answer the intended way. I needed to make a POST request to a `nostromo` endpoint with correct file_path. I've used Burp Repeater to send this request and authenticate:
+After some time I deducted- this was the bite I mentioned earlier: because I'd read the file directly via GET instead of going through the intended POST flow, I never triggered `isYamlAuthenticate`, so the app still didn't recognize me as authenticated. I needed to make a POST request to a `nostromo` endpoint with correct file_path. I've used Burp Repeater to send this request and authenticate:
 
 The actual intended path was to POST the YAML filename to the `/api/yaml` endpoint with `{"file_path": "100375.yaml"}`, which would set `isYamlAuthenticate = true` server-side. I then repeated similar solution with POST request as below:
 
-![](Pasted%20image%2020260607200914.png)
+![](images/mothers-secret/nostromo_auth_request.png)
 
 
 The UI updated and the Science Officer's name appeared.
 
-![](Pasted%20image%2020260607200944.png)
+![](images/mothers-secret/role_after_ash_revealed.png)
 
-Continuing the method of sending POST requests with file_path as a payload and a hint that the secret was hidded in this path `/api/nostromo/mother/secret.txt` - I've got the location of final flag. 
+Continuing the method of sending POST requests with file_path as a payload and a hint that the secret was hidden in this path `/api/nostromo/mother/secret.txt` - I've got the location of the final flag. 
 
 
-![](Pasted%20image%2020260607202136.png)
+![](images/mothers-secret/mother_secret_path_found.png)
 
 The secret file lives at `/opt/m0th3r`, but the server reads from `./mother/${file_path}`. To escape the `./mother/` base directory and reach `/opt/m0th3r` I used previously found path traversal vulnerability. 
 
 
-![](Pasted%20image%2020260607202554.png)
-
-
-# Lessons learned
-
-# TODO Semgrep
-Zero friction to get started, meaningful results after a free signup, and it integrates cleanly into CI pipelines. If you're doing any amount of code review or CTF prep, it earns its place in the toolbox.
+![](images/mothers-secret/final_flag_redacted.png)
