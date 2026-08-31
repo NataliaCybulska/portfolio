@@ -3,10 +3,9 @@
 
 | Certification                                 | Issuer                | Completed |
 | --------------------------------------------- | --------------------- | --------- |
+| AWS Certified Cloud Practitioner              | AWS                   | Aug 2026  |
 | CompTIA Security+ (SY0-701)                   | CompTIA               | Mar 2026  |
 | Google Cybersecurity Professional Certificate | Google (via Coursera) | Feb 2026  |
-
-*Next up: AWS Certified Cloud Practitioner.*
 
 ## TryHackMe Learning Paths
 
@@ -30,6 +29,7 @@ Each path is a structured sequence of dozens of guided rooms building toward a s
 
 ![CompTIA Security+ certificate](images/comptia_sec.png)
 ![Google Cybersecurity Professional Certificate](images/google_cyber.png)
+![AWS Certified Cloud Practitioner certificate](images/aws_cloud_practitioner.png)
 ![TryHackMe DevSecOps path certificate](images/thm_DevSecOps.png)
 ![TryHackMe Jr Penetration Tester path certificate](images/thm_jr_pen.png)
 ![TryHackMe Web Fundamentals path certificate](images/thm_web.png)
