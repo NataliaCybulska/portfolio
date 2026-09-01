@@ -8,7 +8,7 @@ My background is QA - since then I've been leaning hard into infrastructure, sec
 
 ## Certifications
 
-CompTIA Security+, AWS Certified Cloud Practitioner and the Google Cybersecurity Professional Certificate. I've also been living on TryHackMe: top 1% rank, 276 rooms completed, 228-day streak. Full breakdown, dates, and verification details in [certifications](certifications/README.md).
+CompTIA Security+, AWS Certified Cloud Practitioner and the Google Cybersecurity Professional Certificate. I've also been living on TryHackMe: top 1% rank, 286 rooms completed, 250-day streak. Full breakdown, dates, and verification details in [certifications](certifications/README.md).
 
 ---
 
