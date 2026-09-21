@@ -1,11 +1,12 @@
 
 ## Certifications
 
-| Certification                                 | Issuer                | Completed |
-| --------------------------------------------- | --------------------- | --------- |
-| AWS Certified Cloud Practitioner              | AWS                   | Aug 2026  |
-| CompTIA Security+                             | CompTIA               | Mar 2026  |
-| Google Cybersecurity Professional Certificate | Google (via Coursera) | Feb 2026  |
+| Certification                                                        | Completed |
+| -------------------------------------------------------------------- | --------- |
+| Microsoft Certified: Security, Compliance, and Identity Fundamentals | Sep 2026  |
+| AWS Certified Cloud Practitioner                                     | Aug 2026  |
+| CompTIA Security+                                                    | Mar 2026  |
+| Google Cybersecurity Professional Certificate                        | Feb 2026  |
 
 ## TryHackMe Learning Paths
 
@@ -79,6 +80,7 @@ Completed earlier, certificate generated Sep 2026 · 19h 10m · `THM-9VCPD2HDS2`
 ![CompTIA Security+ certificate](images/comptia_sec.png)
 ![Google Cybersecurity Professional Certificate](images/google_cyber.png)
 ![AWS Certified Cloud Practitioner certificate](images/aws_cloud_practitioner.png)
+![Microsoft Certified: Security, Compliance, and Identity Fundamentals certificate](images/ms_security_compliance_identity.png)
 ![TryHackMe Defending AWS path certificate](images/thm_defending_aws.png)
 ![TryHackMe DevSecOps path certificate](images/thm_DevSecOps.png)
 ![TryHackMe Jr Penetration Tester path certificate](images/thm_jr_pen.png)
