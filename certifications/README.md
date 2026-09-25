@@ -10,12 +10,23 @@
 
 ## TryHackMe Learning Paths
 
-**TryHackMe profile:** top 1% rank, 286 rooms completed, 250-day streak (yes, I'm aware of what that says about my evenings). Last updated: 01.09.2026 - but believe me, I'm still going. 
+**TryHackMe profile:** top 1% rank, 302 rooms completed, 274-day streak (yes, I'm aware of what that says about my evenings). Last updated: 25.09.2026 - but believe me, I'm still going. 
 
 ![TryHackMe profile stats](images/thm_banner.png)
 
 
-Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~113 hours combined across the five paths below - that's paths only, actual time on TryHackMe is higher once you count stand-alone modules and rooms outside any path.
+Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~178 hours combined across the six paths below - that's paths only, actual time on TryHackMe is higher once you count stand-alone modules and rooms outside any path.
+
+### Security Engineer
+
+Learn the skills required to jumpstart a career in security engineering.
+
+- Network security engineering
+- System security engineering
+- Software security engineering
+- Risk management & responding to incidents
+
+Completed Sep 2026 · 65h 00m · `THM-RORTBUF7LZ`
 
 ### Defending AWS
 
@@ -81,6 +92,7 @@ Completed earlier, certificate generated Sep 2026 · 19h 10m · `THM-9VCPD2HDS2`
 ![Google Cybersecurity Professional Certificate](images/google_cyber.png)
 ![AWS Certified Cloud Practitioner certificate](images/aws_cloud_practitioner.png)
 ![Microsoft Certified: Security, Compliance, and Identity Fundamentals certificate](images/ms_security_compliance_identity.png)
+![TryHackMe Security Engineer path certificate](images/thm_security_engineer.png)
 ![TryHackMe Defending AWS path certificate](images/thm_defending_aws.png)
 ![TryHackMe DevSecOps path certificate](images/thm_DevSecOps.png)
 ![TryHackMe Jr Penetration Tester path certificate](images/thm_jr_pen.png)
