@@ -14,7 +14,7 @@ CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Securi
 
 ## Security Write-ups
 
-Two full write-ups from hands-on TryHackMe rooms: exploiting a vulnerable web app through static code analysis, and breaking insecure Infrastructure-as-Code all the way to a Docker privilege escalation. [security-writeups](security-writeups/README.md) has the full walkthroughs, screenshots, and dead ends.
+Four write-ups covering six TryHackMe rooms, from application code down to infrastructure and up to AI: exploiting a web app found through static code analysis, breaking insecure Infrastructure-as-Code all the way to root on the host, talking LLM chatbots into leaking secrets, and investigating a malicious ML model in production. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. Each one is mapped to the OWASP Top 10 and keeps the dead ends in. [security-writeups](security-writeups/README.md) has the full walkthroughs.
 
 ---
 

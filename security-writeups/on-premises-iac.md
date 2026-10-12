@@ -1,7 +1,9 @@
 
 # On-Premises IaC
 
-![](images/on-premises-iac/thm_room_banner.png)
+![On-Premises IaC room banner](images/on-premises-iac/thm_room_banner.png)
+
+[On-Premises IaC](https://tryhackme.com/room/onpremisesiac) is a TryHackMe room about the security of Infrastructure as Code in on-premises deployments. The job is to review a set of Vagrant and Ansible files, then use what they reveal to work from a web app container all the way to root on the host.
 
 
 ## The Environment
