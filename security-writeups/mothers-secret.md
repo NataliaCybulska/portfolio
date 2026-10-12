@@ -1,10 +1,10 @@
 
 # Mother's Secret
 
-![](images/mothers-secret/thm_room.png)
+![Mother's Secret room banner](images/mothers-secret/thm_room.png)
 
 
-This writeup documents the full thought process behind solving this room - including dead ends and happy accidents - rather than presenting a clean, linear solution
+[Mother's Secret](https://tryhackme.com/room/codeanalysis) is a TryHackMe room about reading an app's source code, spotting the flaws and exploiting them. This writeup documents the full thought process behind solving it, including dead ends and happy accidents, rather than presenting a clean, linear solution.
 
 
 Task instructions:
