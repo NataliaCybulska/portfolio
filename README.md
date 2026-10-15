@@ -8,13 +8,13 @@ My background is QA - since then I've been leaning hard into infrastructure, sec
 
 ## Certifications
 
-CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Security, Compliance, and Identity Fundamentals, and the Google Cybersecurity Professional Certificate. I've also been living on TryHackMe: top 1% rank, 302 rooms completed, 274-day streak. Full breakdown, dates, and verification details in [certifications](certifications/README.md).
+CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Security, Compliance, and Identity Fundamentals, and the Google Cybersecurity Professional Certificate. I've also been living on TryHackMe: top 1% rank, 325 rooms completed, 293-day streak. Full breakdown, dates, and verification details in [certifications](certifications/README.md).
 
 ---
 
 ## Security Write-ups
 
-Four write-ups covering six TryHackMe rooms, from application code down to infrastructure and up to AI: exploiting a web app found through static code analysis, breaking insecure Infrastructure-as-Code all the way to root on the host, talking LLM chatbots into leaking secrets, and investigating a malicious ML model in production. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. Each one is mapped to the OWASP Top 10 and keeps the dead ends in. [security-writeups](security-writeups/README.md) has the full walkthroughs.
+Five write-ups covering seven TryHackMe rooms, from application code down to infrastructure and up to AI: exploiting a web app found through static code analysis, breaking insecure Infrastructure-as-Code all the way to root on the host, talking LLM chatbots into leaking secrets, investigating a malicious ML model in production, and fixing a leaky RAG assistant. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. Each one is mapped to the OWASP Top 10 and keeps the dead ends in. [security-writeups](security-writeups/README.md) has the full walkthroughs.
 
 ---
 

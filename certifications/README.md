@@ -10,12 +10,27 @@
 
 ## TryHackMe Learning Paths
 
-**TryHackMe profile:** top 1% rank, 302 rooms completed, 274-day streak (yes, I'm aware of what that says about my evenings). Last updated: 25.09.2026 - but believe me, I'm still going. 
+**TryHackMe profile:** top 1% rank, 325 rooms completed, 293-day streak (yes, I'm aware of what that says about my evenings). Last updated: 15.10.2026 - but believe me, I'm still going. 
 
 ![TryHackMe profile stats](images/thm_banner.png)
 
+![TryHackMe yearly activity](images/thm_yearly_activity.png)
 
-Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~178 hours combined across the six paths below - that's paths only, actual time on TryHackMe is higher once you count stand-alone modules and rooms outside any path.
+*The few empty squares are days I used a streak freeze, which TryHackMe provides so a single missed day doesn't reset the streak.*
+
+
+Each path is a structured sequence of dozens of guided rooms building toward a specific skill area. ~197 hours combined across the seven paths below - that's paths only, actual time on TryHackMe is higher once you count stand-alone modules and rooms outside any path.
+
+### AI Security
+
+AI is the new attack surface. Learn to break it, defend it, and secure it from the ground up.
+
+- Understand how AI systems are built and deployed
+- Attack and defend LLMs with prompt injection and jailbreaking
+- Secure AI supply chains and training data
+- Exploit OWASP LLM vulnerabilities against real agents
+
+Completed Oct 2026 · 19h 15m · `THM-UQYCMKA0KP`
 
 ### Security Engineer
 
@@ -92,6 +107,7 @@ Completed earlier, certificate generated Sep 2026 · 19h 10m · `THM-9VCPD2HDS2`
 ![Google Cybersecurity Professional Certificate](images/google_cyber.png)
 ![AWS Certified Cloud Practitioner certificate](images/aws_cloud_practitioner.png)
 ![Microsoft Certified: Security, Compliance, and Identity Fundamentals certificate](images/ms_security_compliance_identity.png)
+![TryHackMe AI Security path certificate](images/thm_ai_security.png)
 ![TryHackMe Security Engineer path certificate](images/thm_security_engineer.png)
 ![TryHackMe Defending AWS path certificate](images/thm_defending_aws.png)
 ![TryHackMe DevSecOps path certificate](images/thm_DevSecOps.png)
