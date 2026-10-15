@@ -18,6 +18,8 @@ Used techniques: Log analysis, checksum verification, pickle decompilation, mode
 
 OWASP Top 10 for LLM Applications (2025): [LLM03 Supply Chain](https://genai.owasp.org/llmrisk/llm032025-supply-chain/), [LLM04 Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)
 
+OWASP Top 10:2025: [A03 Software Supply Chain Failures](https://top10.owasp.org/2025/A03_2025-Software_Supply_Chain_Failures/)
+
 Everything lives on the room's VM under `/opt/supply-chain/incident/`:
 
 ```
