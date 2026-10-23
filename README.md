@@ -14,7 +14,13 @@ CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Securi
 
 ## Security Write-ups
 
-Six write-ups covering eight TryHackMe rooms, from application code down to infrastructure and up to AI: exploiting a web app found through static code analysis, breaking insecure Infrastructure-as-Code all the way to root on the host, compromising a Kubernetes cluster from a Grafana bug to cluster-admin, talking LLM chatbots into leaking secrets, investigating a malicious ML model in production, and fixing a leaky RAG assistant. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. Each one is mapped to the OWASP Top 10 and keeps the dead ends in. [security-writeups](security-writeups/README.md) has the full walkthroughs.
+Seven write-ups from hands-on TryHackMe rooms, grouped by layer: 
+
+- Application: breaking a web app found through static code analysis 
+- Infrastructure: insecure IaC to host root, and two Kubernetes clusters taken to cluster-admin 
+- AI: jailbreaking chatbots, investigating a backdoored ML model, and hardening a leaky RAG assistant 
+
+Each one keeps the dead ends in and maps findings to the relevant OWASP Top 10 list. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. [security-writeups](security-writeups/README.md) has the full walkthroughs.
 
 ---
 
