@@ -14,13 +14,14 @@ CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Securi
 
 ## Security Write-ups
 
-Seven write-ups from hands-on TryHackMe rooms, grouped by layer: 
+Eight write-ups from hands-on TryHackMe rooms, from breaking things to catching them:
 
 - Application: breaking a web app found through static code analysis 
 - Infrastructure: insecure IaC to host root, and two Kubernetes clusters taken to cluster-admin 
 - AI: jailbreaking chatbots, investigating a backdoored ML model, and hardening a leaky RAG assistant 
+- Defense: climbing the Pyramid of Pain to detect and block malware, one indicator at a time
 
-Each one keeps the dead ends in and maps findings to the relevant OWASP Top 10 list. The Payload room hit close to home after working on a model server: it's about what happens when the model you're serving is the attack. [security-writeups](security-writeups/README.md) has the full walkthroughs.
+Each one keeps the dead ends in and maps findings to the relevant framework, from the OWASP Top 10 to MITRE ATT&CK. The Payload room hit close to home after working on a model server: it’s about what happens when the model you’re serving is the attack. [security-writeups](security-writeups/README.md) has the full walkthroughs.
 
 ---
 
