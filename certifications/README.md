@@ -10,7 +10,7 @@
 
 ## TryHackMe Learning Paths
 
-**TryHackMe profile:** top 1% rank, 325 rooms completed, 293-day streak (yes, I'm aware of what that says about my evenings). Last updated: 15.10.2026 - but believe me, I'm still going. 
+**TryHackMe profile:** top 1% rank, 341 rooms completed, 308-day streak (yes, I'm aware of what that says about my evenings). Last updated: 29.10.2026 - but believe me, I'm still going. 
 
 ![TryHackMe profile stats](images/thm_banner.png)
 
