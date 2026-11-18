@@ -14,10 +14,10 @@ CompTIA Security+, AWS Certified Cloud Practitioner, Microsoft Certified: Securi
 
 ## Security Write-ups
 
-Nine write-ups from hands-on TryHackMe rooms, from breaking things to catching them:
+Ten write-ups from hands-on TryHackMe rooms, from breaking things to catching them:
 
 - Application: breaking a web app found through static code analysis 
-- Infrastructure: insecure IaC to host root, and two Kubernetes clusters taken to cluster-admin 
+- Infrastructure: insecure IaC to host root, two Kubernetes clusters taken to cluster-admin, and abusing SSH trust mechanisms
 - AI: jailbreaking chatbots, investigating a backdoored ML model, and hardening a leaky RAG assistant 
 - Defense: climbing the Pyramid of Pain to detect malware, and tracing a credential-phishing campaign from inbox to kit
 
